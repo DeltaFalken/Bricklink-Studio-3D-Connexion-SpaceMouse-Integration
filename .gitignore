@@ -1,0 +1,7 @@
+# Build intermediates. The DLLs in bin/ are committed on purpose: Install.bat installs them.
+plugin/obj/
+
+# Editors
+.vs/
+.vscode/
+*.user

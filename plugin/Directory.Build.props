@@ -1,0 +1,21 @@
+<Project>
+  <!-- Shared settings for the loader and the plugin project -->
+  <PropertyGroup>
+    <!-- BrickLink Studio's installation folder; override with: dotnet build -p:StudioDir=... -->
+    <StudioDir Condition="'$(StudioDir)' == ''">C:\Program Files\Studio 2.0</StudioDir>
+    <!-- Studio's own assemblies are referenced from there and never copied or redistributed -->
+    <StudioManaged>$(StudioDir)\Studio_Data\Managed</StudioManaged>
+
+    <!-- Studio runs on Unity's Mono runtime (.NET 4.x profile) -->
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <Deterministic>true</Deterministic>
+    <DebugType>none</DebugType>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <!-- both DLLs go to bin\ in the repository root, where the installer expects them -->
+    <OutputPath>$(MSBuildThisFileDirectory)..\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+</Project>
